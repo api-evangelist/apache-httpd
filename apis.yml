@@ -1,0 +1,38 @@
+aid: apache-httpd
+name: Apache HTTP Server
+description: >-
+  Apache HTTP Server (httpd) is the world's most widely used web server software, also commonly used as a reverse proxy and load balancer.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Proxy
+  - Reverse Proxy
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-httpd/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: apache-httpd:apache-httpd
+    name: Apache HTTP Server
+    description: >-
+      Apache HTTP Server (httpd) is the world's most widely used web server software, also commonly used as a reverse proxy and load balancer.
+    humanURL: https://httpd.apache.org/
+    tags:
+      - Proxy
+      - Reverse Proxy
+    properties:
+      - type: Documentation
+        url: https://httpd.apache.org/docs/current/
+      - type: Getting Started
+        url: https://httpd.apache.org/docs/current/getting-started.html
+common:
+  - type: Website
+    url: https://httpd.apache.org/
+  - type: Documentation
+    url: https://httpd.apache.org/docs/current/
+  - type: GitHub Organization
+    url: https://github.com/apache/httpd
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
