@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-schema/httpd-virtualhost-schema.json",
+  "title": "VirtualHost",
+  "type": "object",
+  "description": "Apache HTTP Server virtual host configuration",
+  "properties": {
+    "serverName": {
+      "type": "string",
+      "description": "Primary server name (ServerName directive)",
+      "example": "www.example.com"
+    },
+    "serverAliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Additional server aliases",
+      "example": [
+        "example.com"
+      ]
+    },
+    "documentRoot": {
+      "type": "string",
+      "description": "Document root directory path",
+      "example": "/var/www/html"
+    },
+    "port": {
+      "type": "integer",
+      "description": "Listening port",
+      "example": 443
+    },
+    "sslEnabled": {
+      "type": "boolean",
+      "description": "Whether SSL/TLS is enabled",
+      "example": true
+    },
+    "errorLog": {
+      "type": "string",
+      "description": "Error log file path",
+      "example": "/var/log/apache2/error.log"
+    },
+    "accessLog": {
+      "type": "string",
+      "description": "Access log file path",
+      "example": "/var/log/apache2/access.log"
+    }
+  }
+}

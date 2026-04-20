@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-structure/httpd-proxybalancer-structure.json",
+  "title": "ProxyBalancer",
+  "type": "object",
+  "properties": {
+    "url": "string",
+    "lbMethod": "string",
+    "nonce": "string",
+    "members": "array"
+  }
+}

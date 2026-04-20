@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-structure/httpd-serverstatus-structure.json",
+  "title": "ServerStatus",
+  "type": "object",
+  "properties": {
+    "ServerVersion": "string",
+    "ServerMPM": "string",
+    "ServerUptimeSeconds": "int32",
+    "Load1": "double",
+    "Load5": "double",
+    "Load15": "double",
+    "ReqPerSec": "double",
+    "BytesPerSec": "double",
+    "BusyWorkers": "int32",
+    "IdleWorkers": "int32",
+    "Scoreboard": "string"
+  }
+}

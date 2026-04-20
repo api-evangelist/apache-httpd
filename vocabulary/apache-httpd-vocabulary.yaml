@@ -1,0 +1,44 @@
+name: Apache HTTP Server Vocabulary
+description: Unified taxonomy for Apache HTTP Server status API resources, actions, workflows, and personas
+version: "2.4.0"
+
+resources:
+  - name: ServerStatus
+    description: Real-time server metrics including request rates and worker states
+    openapi: "#/components/schemas/ServerStatus"
+    capability: httpd-status
+  - name: VirtualHost
+    description: Virtual host configuration for multi-tenant HTTP serving
+    openapi: "#/components/schemas/VirtualHost"
+    capability: httpd-status
+  - name: ProxyBalancer
+    description: Load balancer pool with member backend definitions
+    openapi: "#/components/schemas/ProxyBalancer"
+    capability: httpd-status
+  - name: BalancerMember
+    description: Individual backend member in a load balancer pool
+    openapi: "#/components/schemas/BalancerMember"
+    capability: httpd-status
+
+actions:
+  - name: Get Status
+    description: Retrieve server status metrics from mod_status
+    operationId: getServerStatus
+  - name: Get Info
+    description: Retrieve server module and configuration info
+    operationId: getServerInfo
+  - name: Get Balancer
+    description: Retrieve load balancer pool state
+    operationId: getBalancerManager
+  - name: Update Balancer
+    description: Modify load balancer member status or weight
+    operationId: updateBalancerMember
+
+workflows:
+  - name: Apache HTTP Server Monitoring
+    description: Monitor server status, worker performance, and load balancer state
+    capability: httpd-server-monitoring.yaml
+
+personas:
+  - name: Platform Engineer
+    description: Engineer who operates and monitors Apache HTTP Server deployments for performance and availability

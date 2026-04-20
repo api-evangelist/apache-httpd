@@ -1,0 +1,37 @@
+name: Apache HTTP Server Status API
+description: Shared capability definitions for Apache HTTP Server status and balancer management operations
+baseUrl: http://localhost:80
+transport: rest
+version: "2.4.0"
+operations:
+  - operationId: getServerStatus
+    name: Apache HTTP Server Get Server Status
+    description: Get real-time server metrics from mod_status
+    method: GET
+    path: /server-status
+    tags:
+      - Status
+
+  - operationId: getServerInfo
+    name: Apache HTTP Server Get Server Info
+    description: Get loaded module and configuration information from mod_info
+    method: GET
+    path: /server-info
+    tags:
+      - Status
+
+  - operationId: getBalancerManager
+    name: Apache HTTP Server Get Balancer Manager
+    description: Get load balancer pool and member states from mod_proxy_balancer
+    method: GET
+    path: /balancer-manager
+    tags:
+      - Balancer
+
+  - operationId: updateBalancerMember
+    name: Apache HTTP Server Update Balancer Member
+    description: Update load balancer member status or weight via balancer-manager
+    method: POST
+    path: /balancer-manager
+    tags:
+      - Balancer

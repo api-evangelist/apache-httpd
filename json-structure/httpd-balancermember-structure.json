@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-structure/httpd-balancermember-structure.json",
+  "title": "BalancerMember",
+  "type": "object",
+  "properties": {
+    "url": "string",
+    "scheme": "string",
+    "hostname": "string",
+    "port": "int32",
+    "loadFactor": "int32",
+    "lbStatus": "string"
+  }
+}

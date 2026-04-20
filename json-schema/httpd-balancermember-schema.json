@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-schema/httpd-balancermember-schema.json",
+  "title": "BalancerMember",
+  "type": "object",
+  "description": "Member of a mod_proxy_balancer load balancing pool",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "Backend URL",
+      "example": "http://backend1:8080"
+    },
+    "scheme": {
+      "type": "string",
+      "description": "Protocol scheme",
+      "example": "http"
+    },
+    "hostname": {
+      "type": "string",
+      "description": "Backend hostname",
+      "example": "backend1"
+    },
+    "port": {
+      "type": "integer",
+      "description": "Backend port",
+      "example": 8080
+    },
+    "loadFactor": {
+      "type": "integer",
+      "description": "Load factor weight",
+      "example": 1
+    },
+    "lbStatus": {
+      "type": "string",
+      "description": "Load balancer member status",
+      "example": "Ok"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+name: Apache HTTP Server Monitoring
+description: Workflow capability for monitoring Apache HTTP Server status, worker performance, and load balancer state
+persona: Platform Engineer
+workflow:
+  - step: server-status
+    name: Get Server Status
+    description: Retrieve request rates, worker states, and system load from mod_status
+    capability: httpd-status
+    operation: getServerStatus
+    server:
+      rest: http://localhost:80
+      mcp: http://localhost:9090
+
+  - step: server-info
+    name: Get Server Info
+    description: Retrieve loaded modules and configuration from mod_info
+    capability: httpd-status
+    operation: getServerInfo
+    server:
+      rest: http://localhost:80
+      mcp: http://localhost:9090
+
+  - step: balancer-status
+    name: Get Balancer Status
+    description: Check load balancer pool health and member assignments
+    capability: httpd-status
+    operation: getBalancerManager
+    server:
+      rest: http://localhost:80
+      mcp: http://localhost:9090
+
+tools:
+  - name: getServerStatus
+    description: Get Apache httpd server status metrics
+    server:
+      rest:
+        baseUrl: http://localhost:80
+        path: /server-status
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getServerStatus
+        method: POST
+
+  - name: getServerInfo
+    description: Get Apache httpd server module and configuration info
+    server:
+      rest:
+        baseUrl: http://localhost:80
+        path: /server-info
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getServerInfo
+        method: POST
+
+  - name: getBalancerManager
+    description: Get load balancer pool and member status
+    server:
+      rest:
+        baseUrl: http://localhost:80
+        path: /balancer-manager
+        method: GET
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/getBalancerManager
+        method: POST
+
+  - name: updateBalancerMember
+    description: Update load balancer member status or weight
+    server:
+      rest:
+        baseUrl: http://localhost:80
+        path: /balancer-manager
+        method: POST
+      mcp:
+        baseUrl: http://localhost:9090
+        path: /tools/updateBalancerMember
+        method: POST

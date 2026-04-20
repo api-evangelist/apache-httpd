@@ -1,0 +1,13 @@
+{
+  "ServerVersion": "Apache/2.4.57 (Unix)",
+  "ServerMPM": "event",
+  "ServerUptimeSeconds": 86400,
+  "Load1": 0.12,
+  "Load5": 0.09,
+  "Load15": 0.08,
+  "ReqPerSec": 142.3,
+  "BytesPerSec": 512000,
+  "BusyWorkers": 10,
+  "IdleWorkers": 6,
+  "Scoreboard": "___________W_______"
+}

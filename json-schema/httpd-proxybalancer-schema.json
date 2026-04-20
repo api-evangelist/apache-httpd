@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-schema/httpd-proxybalancer-schema.json",
+  "title": "ProxyBalancer",
+  "type": "object",
+  "description": "Apache mod_proxy_balancer pool configuration and status",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "Balancer URL",
+      "example": "balancer://mycluster"
+    },
+    "lbMethod": {
+      "type": "string",
+      "description": "Load balancing method",
+      "example": "byrequests"
+    },
+    "nonce": {
+      "type": "string",
+      "description": "Security nonce for balancer-manager",
+      "example": "abc123"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/BalancerMember"
+      },
+      "description": "Balancer member backends"
+    }
+  }
+}

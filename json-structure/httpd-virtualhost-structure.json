@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://api-evangelist.github.io/apache-httpd/json-structure/httpd-virtualhost-structure.json",
+  "title": "VirtualHost",
+  "type": "object",
+  "properties": {
+    "serverName": "string",
+    "serverAliases": "array",
+    "documentRoot": "string",
+    "port": "int32",
+    "sslEnabled": "boolean",
+    "errorLog": "string",
+    "accessLog": "string"
+  }
+}

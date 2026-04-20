@@ -1,0 +1,6 @@
+{
+  "url": "balancer://mycluster",
+  "lbMethod": "byrequests",
+  "nonce": "abc123",
+  "members": []
+}

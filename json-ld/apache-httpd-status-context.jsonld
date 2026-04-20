@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "httpd": "https://httpd.apache.org/vocab#",
+    "ServerVersion": "httpd:ServerVersion",
+    "ServerMPM": "httpd:ServerMPM",
+    "ServerUptimeSeconds": "httpd:ServerUptimeSeconds",
+    "Load1": "httpd:Load1",
+    "Load5": "httpd:Load5",
+    "Load15": "httpd:Load15",
+    "ReqPerSec": "httpd:ReqPerSec",
+    "BytesPerSec": "httpd:BytesPerSec",
+    "BusyWorkers": "httpd:BusyWorkers",
+    "IdleWorkers": "httpd:IdleWorkers",
+    "Scoreboard": "httpd:Scoreboard",
+    "serverName": "schema:name",
+    "serverAliases": "httpd:serverAliases",
+    "documentRoot": "httpd:documentRoot",
+    "port": "schema:portNumber",
+    "sslEnabled": "httpd:sslEnabled",
+    "errorLog": "httpd:errorLog",
+    "accessLog": "httpd:accessLog",
+    "url": "schema:url",
+    "scheme": "httpd:scheme",
+    "hostname": "schema:hostName",
+    "loadFactor": "httpd:loadFactor",
+    "lbStatus": "httpd:lbStatus",
+    "lbMethod": "httpd:lbMethod",
+    "nonce": "httpd:nonce",
+    "members": "httpd:members"
+  }
+}

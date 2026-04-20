@@ -1,0 +1,11 @@
+{
+  "serverName": "www.example.com",
+  "serverAliases": [
+    "example.com"
+  ],
+  "documentRoot": "/var/www/html",
+  "port": 443,
+  "sslEnabled": true,
+  "errorLog": "/var/log/apache2/error.log",
+  "accessLog": "/var/log/apache2/access.log"
+}

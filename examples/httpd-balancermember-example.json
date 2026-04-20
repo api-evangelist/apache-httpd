@@ -1,0 +1,8 @@
+{
+  "url": "http://backend1:8080",
+  "scheme": "http",
+  "hostname": "backend1",
+  "port": 8080,
+  "loadFactor": 1,
+  "lbStatus": "Ok"
+}
