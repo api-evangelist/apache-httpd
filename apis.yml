@@ -38,7 +38,7 @@ apis:
         url: openapi/apache-httpd-status-openapi.yml
       - type: JSONSchema
         url: json-schema/httpd-serverstatus-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/apache-httpd-status-context.jsonld
 
   - aid: apache-httpd:apache-httpd-config-api
