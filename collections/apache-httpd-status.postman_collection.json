@@ -1,0 +1,413 @@
+{
+  "item": [
+    {
+      "id": "771595be-75c0-4798-9696-a249befc4bbd",
+      "name": "Status",
+      "description": {
+        "content": "Server status and metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "19f9495b-ea4e-45c1-8042-df11d91f3d6f",
+          "name": "Apache HTTP Server Get Server Status",
+          "request": {
+            "name": "Apache HTTP Server Get Server Status",
+            "description": {
+              "content": "Get real-time server status metrics from mod_status including request rates, worker states, and CPU usage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "server-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "auto",
+                  "value": "<string>",
+                  "description": "Use 'auto' for machine-readable plain-text format"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b17cbd47-a7b5-41c6-a525-636873d6c77c",
+              "name": "Server status retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "server-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auto",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ServerVersion\": \"Apache/2.4.57 (Unix)\",\n  \"ServerMPM\": \"event\",\n  \"ServerUptimeSeconds\": 86400,\n  \"Load1\": 0.12,\n  \"Load5\": 0.09,\n  \"Load15\": 0.08,\n  \"ReqPerSec\": 142.3,\n  \"BytesPerSec\": 512000,\n  \"BusyWorkers\": 10,\n  \"IdleWorkers\": 6,\n  \"Scoreboard\": \"___________W_______\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b12cc65-f71a-40d1-8a27-78499e90a39f",
+          "name": "Apache HTTP Server Get Server Info",
+          "request": {
+            "name": "Apache HTTP Server Get Server Info",
+            "description": {
+              "content": "Get detailed server configuration information from mod_info including loaded modules and directives.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "server-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c550becb-172c-42e4-ad29-bab4ac3e564b",
+              "name": "Server info retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "server-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0a18d81c-9a1e-4152-bb85-48b718b83dbe",
+      "name": "Balancer",
+      "description": {
+        "content": "Load balancer management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a59385ef-5608-4a57-9ce5-42f75868519a",
+          "name": "Apache HTTP Server Get Balancer Manager",
+          "request": {
+            "name": "Apache HTTP Server Get Balancer Manager",
+            "description": {
+              "content": "Get the current state of all load balancer pools and their members from mod_proxy_balancer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancer-manager"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b291155-cf08-4469-b02f-b9a563655719",
+              "name": "Balancer manager retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancer-manager"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"balancers\": [\n    {\n      \"url\": \"balancer://mycluster\",\n      \"lbMethod\": \"byrequests\",\n      \"nonce\": \"abc123\",\n      \"members\": [\n        {\n          \"url\": \"http://backend1:8080\",\n          \"scheme\": \"http\",\n          \"hostname\": \"backend1\",\n          \"port\": 8080,\n          \"loadFactor\": 1,\n          \"lbStatus\": \"Ok\"\n        },\n        {\n          \"url\": \"http://backend1:8080\",\n          \"scheme\": \"http\",\n          \"hostname\": \"backend1\",\n          \"port\": 8080,\n          \"loadFactor\": 1,\n          \"lbStatus\": \"Ok\"\n        }\n      ]\n    },\n    {\n      \"url\": \"balancer://mycluster\",\n      \"lbMethod\": \"byrequests\",\n      \"nonce\": \"abc123\",\n      \"members\": [\n        {\n          \"url\": \"http://backend1:8080\",\n          \"scheme\": \"http\",\n          \"hostname\": \"backend1\",\n          \"port\": 8080,\n          \"loadFactor\": 1,\n          \"lbStatus\": \"Ok\"\n        },\n        {\n          \"url\": \"http://backend1:8080\",\n          \"scheme\": \"http\",\n          \"hostname\": \"backend1\",\n          \"port\": 8080,\n          \"loadFactor\": 1,\n          \"lbStatus\": \"Ok\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5220b5a5-3a4e-498b-aa96-ed775cb53bd6",
+          "name": "Apache HTTP Server Update Balancer Member",
+          "request": {
+            "name": "Apache HTTP Server Update Balancer Member",
+            "description": {
+              "content": "Update the status or weight of a load balancer member through the balancer-manager interface.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balancer-manager"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "w",
+                  "value": "<string>",
+                  "description": "Worker URL to update"
+                },
+                {
+                  "disabled": false,
+                  "key": "b",
+                  "value": "<string>",
+                  "description": "Balancer URL"
+                },
+                {
+                  "disabled": false,
+                  "key": "lf",
+                  "value": "<integer>",
+                  "description": "New load factor"
+                },
+                {
+                  "disabled": false,
+                  "key": "wr",
+                  "value": "<integer>",
+                  "description": "Worker retries"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_D",
+                  "value": "<integer>",
+                  "description": "Disabled status (0/1)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f7568157-2b5a-4e06-94d3-7841a2752fab",
+              "name": "Balancer member updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balancer-manager"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Worker URL to update",
+                        "type": "text/plain"
+                      },
+                      "key": "w",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Balancer URL",
+                        "type": "text/plain"
+                      },
+                      "key": "b",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "New load factor",
+                        "type": "text/plain"
+                      },
+                      "key": "lf",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Worker retries",
+                        "type": "text/plain"
+                      },
+                      "key": "wr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Disabled status (0/1)",
+                        "type": "text/plain"
+                      },
+                      "key": "status_D",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:80",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da0a5a1b-63cf-4229-8a05-64ebe4c23701",
+    "name": "Apache HTTP Server Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Status and monitoring API for Apache HTTP Server (httpd) provided by mod_status, exposing server metrics, worker state, and load balancer information.\n\nContact Support:\n Email: dev@httpd.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

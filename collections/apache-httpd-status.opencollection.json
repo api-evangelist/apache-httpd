@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache HTTP Server Status API",
+    "version": "2.4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HTTP Server Get Server Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:80/server-status",
+            "params": [
+              {
+                "name": "auto",
+                "value": "",
+                "type": "query",
+                "description": "Use 'auto' for machine-readable plain-text format"
+              }
+            ]
+          },
+          "docs": "Get real-time server status metrics from mod_status including request rates, worker states, and CPU usage."
+        },
+        {
+          "info": {
+            "name": "Apache HTTP Server Get Server Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:80/server-info"
+          },
+          "docs": "Get detailed server configuration information from mod_info including loaded modules and directives."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Balancer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HTTP Server Get Balancer Manager",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:80/balancer-manager"
+          },
+          "docs": "Get the current state of all load balancer pools and their members from mod_proxy_balancer."
+        },
+        {
+          "info": {
+            "name": "Apache HTTP Server Update Balancer Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:80/balancer-manager",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "w",
+                  "value": ""
+                },
+                {
+                  "name": "b",
+                  "value": ""
+                },
+                {
+                  "name": "lf",
+                  "value": ""
+                },
+                {
+                  "name": "wr",
+                  "value": ""
+                },
+                {
+                  "name": "status_D",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update the status or weight of a load balancer member through the balancer-manager interface."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
