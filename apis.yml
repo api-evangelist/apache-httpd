@@ -55,6 +55,10 @@ apis:
       - type: Documentation
         url: https://httpd.apache.org/docs/current/mod/directives.html
 common:
+  - type: VulnerabilityDisclosure
+    url: security/apache-httpd-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/apache-httpd-domain-security.yml
   - type: Documentation
     url: https://httpd.apache.org/docs/current/
   - type: GettingStarted
