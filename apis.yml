@@ -55,6 +55,8 @@ apis:
       - type: Documentation
         url: https://httpd.apache.org/docs/current/mod/directives.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/apache-httpd-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/apache-httpd-vulnerability-disclosure.yml
   - type: DomainSecurity
