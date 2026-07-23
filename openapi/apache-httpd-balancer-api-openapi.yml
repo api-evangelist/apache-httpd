@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: Apache HTTP Server Status Balancer API
+  version: 2.4.0
+  description: Status and monitoring API for Apache HTTP Server (httpd) provided by mod_status, exposing server metrics, worker state, and load balancer information.
+  contact:
+    email: dev@httpd.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:80
+  description: Apache HTTP Server
+tags:
+- name: Balancer
+  description: Load balancer management
+paths:
+  /balancer-manager:
+    get:
+      operationId: getBalancerManager
+      summary: Apache HTTP Server Get Balancer Manager
+      description: Get the current state of all load balancer pools and their members from mod_proxy_balancer.
+      tags:
+      - Balancer
+      responses:
+        '200':
+          description: Balancer manager retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balancers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProxyBalancer'
+    post:
+      operationId: updateBalancerMember
+      summary: Apache HTTP Server Update Balancer Member
+      description: Update the status or weight of a load balancer member through the balancer-manager interface.
+      tags:
+      - Balancer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                w:
+                  type: string
+                  description: Worker URL to update
+                b:
+                  type: string
+                  description: Balancer URL
+                lf:
+                  type: integer
+                  description: New load factor
+                wr:
+                  type: integer
+                  description: Worker retries
+                status_D:
+                  type: integer
+                  description: Disabled status (0/1)
+      responses:
+        '200':
+          description: Balancer member updated
+components:
+  schemas:
+    BalancerMember:
+      type: object
+      description: Member of a mod_proxy_balancer load balancing pool
+      properties:
+        url:
+          type: string
+          description: Backend URL
+          example: http://backend1:8080
+        scheme:
+          type: string
+          description: Protocol scheme
+          example: http
+        hostname:
+          type: string
+          description: Backend hostname
+          example: backend1
+        port:
+          type: integer
+          description: Backend port
+          example: 8080
+        loadFactor:
+          type: integer
+          description: Load factor weight
+          example: 1
+        lbStatus:
+          type: string
+          description: Load balancer member status
+          example: Ok
+    ProxyBalancer:
+      type: object
+      description: Apache mod_proxy_balancer pool configuration and status
+      properties:
+        url:
+          type: string
+          description: Balancer URL
+          example: balancer://mycluster
+        lbMethod:
+          type: string
+          description: Load balancing method
+          example: byrequests
+        nonce:
+          type: string
+          description: Security nonce for balancer-manager
+          example: abc123
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/BalancerMember'
+          description: Balancer member backends
