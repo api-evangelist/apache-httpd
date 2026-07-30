@@ -5,9 +5,21 @@ description: >-
   acts as a reverse proxy and load balancer, and exposes a mod_status monitoring API and balancer-manager management
   interface for operational visibility.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-httpd.png
 tags:
   - Apache
   - Load Balancer
@@ -20,40 +32,50 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-httpd/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-httpd:apache-httpd-status-api
-    name: Apache HTTP Server Status API
-    description: >-
-      Status and monitoring API for Apache HTTP Server (httpd) provided by mod_status, exposing server metrics, worker
-      state, and load balancer information via HTTP endpoints.
-    humanURL: https://httpd.apache.org/docs/current/mod/mod_status.html
-    baseURL: http://localhost:80
-    tags:
-      - Balancer
-      - Metrics
-      - Monitoring
-      - REST
-      - Status
-    properties:
-      - type: Documentation
-        url: https://httpd.apache.org/docs/current/mod/mod_status.html
-      - type: OpenAPI
-        url: openapi/apache-httpd-status-openapi.yml
-      - type: JSONSchema
-        url: json-schema/httpd-serverstatus-schema.json
-      - type: JSONLD
-        url: json-ld/apache-httpd-status-context.jsonld
-  - aid: apache-httpd:apache-httpd-config-api
-    name: Apache HTTP Server Configuration Reference
-    description: >-
-      Configuration directive reference for Apache HTTP Server covering VirtualHost, mod_ssl, mod_rewrite, mod_proxy,
-      and all core directives for web server, proxy, and SSL configuration.
-    humanURL: https://httpd.apache.org/docs/current/mod/directives.html
-    tags:
-      - Configuration
-      - Reference
-    properties:
-      - type: Documentation
-        url: https://httpd.apache.org/docs/current/mod/directives.html
+- aid: apache-httpd:apache-httpd-config-api
+  name: Apache HTTP Server Configuration Reference
+  description: >-
+    Configuration directive reference for Apache HTTP Server covering VirtualHost, mod_ssl, mod_rewrite,
+    mod_proxy, and all core directives for web server, proxy, and SSL configuration.
+  humanURL: https://httpd.apache.org/docs/current/mod/directives.html
+  tags:
+  - Configuration
+  - Reference
+  properties:
+  - type: Documentation
+    url: https://httpd.apache.org/docs/current/mod/directives.html
+- aid: apache-httpd:apache-httpd-balancer-api
+  name: Apache HTTP Server Balancer API
+  description: Load balancer management
+  humanURL: https://httpd.apache.org/docs/current/mod/mod_status.html
+  baseURL: http://localhost:80
+  tags:
+  - Balancer
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-httpd-balancer-api-openapi.yml
+  - type: Documentation
+    url: https://httpd.apache.org/docs/current/mod/mod_status.html
+  - type: JSONSchema
+    url: json-schema/httpd-serverstatus-schema.json
+  - type: JSONLD
+    url: json-ld/apache-httpd-status-context.jsonld
+- aid: apache-httpd:apache-httpd-status-api
+  name: Apache HTTP Server Status API
+  description: Server status and metrics
+  humanURL: https://httpd.apache.org/docs/current/mod/mod_status.html
+  baseURL: http://localhost:80
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-httpd-status-api-openapi.yml
+  - type: Documentation
+    url: https://httpd.apache.org/docs/current/mod/mod_status.html
+  - type: JSONSchema
+    url: json-schema/httpd-serverstatus-schema.json
+  - type: JSONLD
+    url: json-ld/apache-httpd-status-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/apache-httpd-agentic-access.yml
