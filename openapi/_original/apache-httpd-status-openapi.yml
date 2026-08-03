@@ -1,0 +1,243 @@
+openapi: 3.0.3
+info:
+  title: Apache HTTP Server Status API
+  version: 2.4.0
+  description: Status and monitoring API for Apache HTTP Server (httpd) provided by
+    mod_status, exposing server metrics, worker state, and load balancer information.
+  contact:
+    email: dev@httpd.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:80
+  description: Apache HTTP Server
+tags:
+- name: Status
+  description: Server status and metrics
+- name: Balancer
+  description: Load balancer management
+paths:
+  /server-status:
+    get:
+      operationId: getServerStatus
+      summary: Apache HTTP Server Get Server Status
+      description: Get real-time server status metrics from mod_status including request
+        rates, worker states, and CPU usage.
+      tags:
+      - Status
+      parameters:
+      - name: auto
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Use 'auto' for machine-readable plain-text format
+      responses:
+        '200':
+          description: Server status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerStatus'
+  /server-info:
+    get:
+      operationId: getServerInfo
+      summary: Apache HTTP Server Get Server Info
+      description: Get detailed server configuration information from mod_info including
+        loaded modules and directives.
+      tags:
+      - Status
+      responses:
+        '200':
+          description: Server info retrieved
+          content:
+            text/html:
+              schema:
+                type: string
+  /balancer-manager:
+    get:
+      operationId: getBalancerManager
+      summary: Apache HTTP Server Get Balancer Manager
+      description: Get the current state of all load balancer pools and their members
+        from mod_proxy_balancer.
+      tags:
+      - Balancer
+      responses:
+        '200':
+          description: Balancer manager retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balancers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProxyBalancer'
+    post:
+      operationId: updateBalancerMember
+      summary: Apache HTTP Server Update Balancer Member
+      description: Update the status or weight of a load balancer member through the
+        balancer-manager interface.
+      tags:
+      - Balancer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                w:
+                  type: string
+                  description: Worker URL to update
+                b:
+                  type: string
+                  description: Balancer URL
+                lf:
+                  type: integer
+                  description: New load factor
+                wr:
+                  type: integer
+                  description: Worker retries
+                status_D:
+                  type: integer
+                  description: Disabled status (0/1)
+      responses:
+        '200':
+          description: Balancer member updated
+components:
+  schemas:
+    ServerStatus:
+      type: object
+      description: Apache HTTP Server status information from mod_status
+      properties:
+        ServerVersion:
+          type: string
+          description: Apache server version string
+          example: Apache/2.4.57 (Unix)
+        ServerMPM:
+          type: string
+          description: Multi-processing module in use
+          example: event
+        ServerUptimeSeconds:
+          type: integer
+          description: Server uptime in seconds
+          example: 86400
+        Load1:
+          type: number
+          description: 1-minute load average
+          example: 0.12
+        Load5:
+          type: number
+          description: 5-minute load average
+          example: 0.09
+        Load15:
+          type: number
+          description: 15-minute load average
+          example: 0.08
+        ReqPerSec:
+          type: number
+          description: Requests per second
+          example: 142.3
+        BytesPerSec:
+          type: number
+          description: Bytes transferred per second
+          example: 512000
+        BusyWorkers:
+          type: integer
+          description: Number of busy worker threads
+          example: 10
+        IdleWorkers:
+          type: integer
+          description: Number of idle worker threads
+          example: 6
+        Scoreboard:
+          type: string
+          description: Worker state scoreboard string
+          example: ___________W_______
+    VirtualHost:
+      type: object
+      description: Apache HTTP Server virtual host configuration
+      properties:
+        serverName:
+          type: string
+          description: Primary server name (ServerName directive)
+          example: www.example.com
+        serverAliases:
+          type: array
+          items:
+            type: string
+          description: Additional server aliases
+          example:
+          - example.com
+        documentRoot:
+          type: string
+          description: Document root directory path
+          example: /var/www/html
+        port:
+          type: integer
+          description: Listening port
+          example: 443
+        sslEnabled:
+          type: boolean
+          description: Whether SSL/TLS is enabled
+          example: true
+        errorLog:
+          type: string
+          description: Error log file path
+          example: /var/log/apache2/error.log
+        accessLog:
+          type: string
+          description: Access log file path
+          example: /var/log/apache2/access.log
+    BalancerMember:
+      type: object
+      description: Member of a mod_proxy_balancer load balancing pool
+      properties:
+        url:
+          type: string
+          description: Backend URL
+          example: http://backend1:8080
+        scheme:
+          type: string
+          description: Protocol scheme
+          example: http
+        hostname:
+          type: string
+          description: Backend hostname
+          example: backend1
+        port:
+          type: integer
+          description: Backend port
+          example: 8080
+        loadFactor:
+          type: integer
+          description: Load factor weight
+          example: 1
+        lbStatus:
+          type: string
+          description: Load balancer member status
+          example: Ok
+    ProxyBalancer:
+      type: object
+      description: Apache mod_proxy_balancer pool configuration and status
+      properties:
+        url:
+          type: string
+          description: Balancer URL
+          example: balancer://mycluster
+        lbMethod:
+          type: string
+          description: Load balancing method
+          example: byrequests
+        nonce:
+          type: string
+          description: Security nonce for balancer-manager
+          example: abc123
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/BalancerMember'
+          description: Balancer member backends

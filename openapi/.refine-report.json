@@ -1,0 +1,16 @@
+{
+  "provider": "apache-httpd",
+  "sources": [
+    "apache-httpd-balancer-api-openapi.yml",
+    "apache-httpd-status-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-httpd-balancer-api-openapi.yml",
+    "apache-httpd-status-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
