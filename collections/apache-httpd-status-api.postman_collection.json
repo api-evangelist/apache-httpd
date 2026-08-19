@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "de4c910b-673d-488d-91c3-0d6f978c43b5",
+      "name": "Status",
+      "description": {
+        "content": "Server status and metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f63abae-30e3-4461-86c7-5add3ff4a166",
+          "name": "Apache HTTP Server Get Server Status",
+          "request": {
+            "name": "Apache HTTP Server Get Server Status",
+            "description": {
+              "content": "Get real-time server status metrics from mod_status including request rates, worker states, and CPU usage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "server-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "auto",
+                  "value": "<string>",
+                  "description": "Use 'auto' for machine-readable plain-text format"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df099d49-e3b7-42c5-950d-08913de5c1a9",
+              "name": "Server status retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "server-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "auto",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ServerVersion\": \"Apache/2.4.57 (Unix)\",\n  \"ServerMPM\": \"event\",\n  \"ServerUptimeSeconds\": 86400,\n  \"Load1\": 0.12,\n  \"Load5\": 0.09,\n  \"Load15\": 0.08,\n  \"ReqPerSec\": 142.3,\n  \"BytesPerSec\": 512000,\n  \"BusyWorkers\": 10,\n  \"IdleWorkers\": 6,\n  \"Scoreboard\": \"___________W_______\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70345ef7-a864-48c1-a0f3-a7cefe09daad",
+          "name": "Apache HTTP Server Get Server Info",
+          "request": {
+            "name": "Apache HTTP Server Get Server Info",
+            "description": {
+              "content": "Get detailed server configuration information from mod_info including loaded modules and directives.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "server-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73a7d309-d6e4-417a-bb61-5ba087f53bff",
+              "name": "Server info retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "server-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:80",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "089ddd33-9fb9-44bd-8cba-7ede093b4f52",
+    "name": "Apache HTTP Server Balancer Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Status and monitoring API for Apache HTTP Server (httpd) provided by mod_status, exposing server metrics, worker state, and load balancer information.\n\nContact Support:\n Email: dev@httpd.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

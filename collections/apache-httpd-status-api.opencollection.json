@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache HTTP Server Balancer Status API",
+    "version": "2.4.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache HTTP Server Get Server Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:80/server-status",
+            "params": [
+              {
+                "name": "auto",
+                "value": "",
+                "type": "query",
+                "description": "Use 'auto' for machine-readable plain-text format"
+              }
+            ]
+          },
+          "docs": "Get real-time server status metrics from mod_status including request rates, worker states, and CPU usage."
+        },
+        {
+          "info": {
+            "name": "Apache HTTP Server Get Server Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:80/server-info"
+          },
+          "docs": "Get detailed server configuration information from mod_info including loaded modules and directives."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
