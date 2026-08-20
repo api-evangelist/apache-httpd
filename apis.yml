@@ -23,6 +23,13 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-htt
 tags:
   - Apache
   - Load Balancer
+  - Open-Source
+  - Proxy
+  - Reverse Proxy
+  - Web Server
+tags_raw:
+  - Apache
+  - Load Balancer
   - Open Source
   - Proxy
   - Reverse Proxy
