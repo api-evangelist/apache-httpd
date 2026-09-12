@@ -97,6 +97,8 @@ apis:
   - type: JSONLD
     url: json-ld/apache-httpd-status-context.jsonld
 common:
+  - type: Website
+    url: https://www.apache.org/
   - type: SecurityPolicy
     url: https://github.com/apache/httpd/blob/trunk/SECURITY.md
   - type: CodeOfConduct
