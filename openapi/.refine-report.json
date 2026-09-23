@@ -1,8 +1,7 @@
 {
   "provider": "apache-httpd",
   "sources": [
-    "apache-httpd-balancer-api-openapi.yml",
-    "apache-httpd-status-api-openapi.yml"
+    "_original/apache-httpd-status-openapi.yml"
   ],
   "outputs": [
     "apache-httpd-balancer-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-httpd-status-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apache-httpd-balancer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-httpd-status-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
