@@ -36,7 +36,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-htt
 tags:
   - Apache
   - Load Balancer
-  - Open-Source
+  - Open Source
   - Proxy
   - Reverse Proxy
   - Web Server
@@ -47,6 +47,7 @@ tags_raw:
   - Proxy
   - Reverse Proxy
   - Web Server
+  - Open-Source
 created: '2026-03-16'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-httpd/refs/heads/main/apis.yml
